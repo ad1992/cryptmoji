@@ -1,0 +1,34 @@
+.App {
+  text-align: center;
+
+  .flex-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .flex-item {
+    width: 400px;
+    display: flex;
+    flex: 1;
+    margin: 10px 0;
+    word-break: break-word;
+  }
+
+  button {
+    padding: 5px;
+    margin: 5px;
+    height: 40px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 20px;
+  }
+}

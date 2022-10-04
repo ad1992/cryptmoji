@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { decrypt } from "./crypto";
+import { dataToBytes } from "./transformData";
 
 const DecyrptView = () => {
   const [encryptedText, setEncryptedText] = useState("");
   const [password, setPassword] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
+
   return (
     <div className="decrypt-view flex-container">
       <label>
@@ -29,10 +31,8 @@ const DecyrptView = () => {
       <button
         className="flex-item"
         onClick={async () => {
-          const dataInBytes = new Uint8Array(
-            encryptedText.split(",").map(Number)
-          );
           try {
+            const dataInBytes = dataToBytes(encryptedText);
             const data = await decrypt(dataInBytes, password);
             setDecryptedText(data);
           } catch (err) {

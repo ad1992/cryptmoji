@@ -1,6 +1,17 @@
 .App {
   text-align: center;
 
+  .flex {
+    display: flex;
+  }
+
+  .flex-col {
+    flex-direction: column;
+  }
+
+  .align-items-center {
+    align-items: center;
+  }
   .flex-container {
     display: flex;
     flex-direction: column;

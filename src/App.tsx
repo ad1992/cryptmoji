@@ -11,7 +11,7 @@ function App() {
   const [activeView, setActiveView] = useState(VIEW.ENCRYPT);
   return (
     <div className="App">
-      <h1>Encrypt your message to Emoji</h1>
+      <h1>Encrypt your messages</h1>
       <div>
         <button onClick={() => setActiveView(VIEW.ENCRYPT)}>Encyrpt</button>
         <button onClick={() => setActiveView(VIEW.DECRYPT)}>Decrypt</button>

@@ -37,6 +37,7 @@ const EncryptView = () => {
           id="message"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
+          rows={5}
         ></textarea>
         <label htmlFor="password"> Enter the password </label>
         <input
@@ -55,7 +56,7 @@ const EncryptView = () => {
               onChange={updateTheme}
               checked={theme === "emoji"}
             />
-              <label htmlFor="emoji">Emoji</label>
+              <label htmlFor="emoji">😍 😙 🧜 🙌 😦 😛 🙀 🤒 🤩 🤯 🏂 😁</label>
           </div>
           <div className="flex ">
             <input
@@ -65,7 +66,10 @@ const EncryptView = () => {
               onChange={updateTheme}
               checked={theme === "latin"}
             />
-              <label htmlFor="html">Latin Characters</label>
+             {" "}
+            <label htmlFor="latin">
+              <span>Ā ā Ć Ď Ɗ ƌ ƍ Ĕ Ĳ Ķ Ƙ Ĺ Œ Ŕ Ŝ Ţ Ɨ Ũ Ů Ŵ ų Ŷ Ź </span>
+            </label>
           </div>
           <div className="flex">
             <input
@@ -75,7 +79,11 @@ const EncryptView = () => {
               onChange={updateTheme}
               checked={theme === "math"}
             />
-              <label htmlFor="math">Math Symbols</label>
+             {" "}
+            <label htmlFor="math">
+              {" "}
+              ≱ ⊥ ∞ ⊕ ∆ ≑ ∭ ⋔ √ ∏ ∌ ⋿ ⊭ ⋩ ∀ ∃ ∌ ∑ ∓{" "}
+            </label>
           </div>
         </div>
         <button
@@ -96,7 +104,7 @@ const EncryptView = () => {
           Encrypt
         </button>
         {encryptedBuffer && (
-          <div className="flex-item">
+          <div className={`flex-item encrypted-text ${theme}`}>
             {renderEncryptedContent(encryptedBuffer)}{" "}
           </div>
         )}

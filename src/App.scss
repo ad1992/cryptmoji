@@ -113,4 +113,15 @@
   .theme {
     padding-left: 0;
   }
+
+  .encrypted-text {
+    font-size: 30px;
+    font-weight: 500;
+    &.latin {
+      color: #74b816;
+    }
+    &.math {
+      color: #0ca678;
+    }
+  }
 }

@@ -17,6 +17,7 @@ const DecyrptView = () => {
           id="encrypted-text"
           onChange={(event) => setEncryptedText(event.target.value)}
           value={encryptedText}
+          rows={5}
         ></textarea>{" "}
         <label htmlFor="password"> Enter the password </label>
         <input

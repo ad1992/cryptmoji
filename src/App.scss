@@ -50,9 +50,15 @@
     flex-direction: column;
     align-items: flex-start;
     margin: 5px;
-    color: #748ffc;
+    color: #22b8cf;
     font-size: 20px;
     font-weight: bold;
+  }
+
+  .theme-options {
+    label {
+      color: #f783ac;
+    }
   }
 
   textarea,
@@ -91,15 +97,16 @@
     font-weight: bold;
     width: 140px;
     &.active {
-      border-bottom: 3px solid #748ffc;
+      border-bottom: 3px solid #0c8599;
     }
   }
 
   .encrypt-btn,
   .decrypt-btn {
-    background: #9775fa;
+    background: #1098ad;
     color: white;
     font-size: 20px;
+    font-weight: bold;
     border: none;
   }
 

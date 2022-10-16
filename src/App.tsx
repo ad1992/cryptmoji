@@ -12,7 +12,7 @@ function App() {
   const [activeView, setActiveView] = useState(VIEW.ENCRYPT);
   return (
     <div className="App">
-      <h1>Encrypt your messages</h1>
+      <h1>Encrypt your messages into Emojis, Latin and Math Symbols</h1>
       <div style={{ margin: "2rem" }}>
         <button
           className={clsx("encrypt", { active: activeView === VIEW.ENCRYPT })}

@@ -3,7 +3,6 @@ import { encrypt } from "./crypto";
 import { convertToEmoji, convertToLatin, convertToMath } from "./transformData";
 
 const THEME = {
-  RAW: "raw",
   LATIN: "latin",
   MATH: "math",
   EMOJI: "emoji",
@@ -14,7 +13,7 @@ const EncryptView = () => {
   const [encryptedBuffer, setEncryptedBuffer] = useState<ArrayBuffer | null>(
     null
   );
-  const [theme, setTheme] = useState("latin");
+  const [theme, setTheme] = useState(THEME.EMOJI);
 
   const updateTheme = (event: { target: HTMLInputElement }) => {
     setTheme(event.target.value);
@@ -47,27 +46,7 @@ const EncryptView = () => {
           onChange={(event) => setPassword(event.target.value)}
         ></input>
         <p className="flex-item theme"> Select theme</p>
-        <div className="flex align-items-center justify-content-center">
-          <div className="flex">
-            <input
-              type="radio"
-              id="latin"
-              value="latin"
-              onChange={updateTheme}
-              checked={theme === "latin"}
-            />
-              <label htmlFor="html">Latin</label>
-          </div>
-          <div className="flex">
-            <input
-              type="radio"
-              id="math"
-              value="math"
-              onChange={updateTheme}
-              checked={theme === "math"}
-            />
-              <label htmlFor="math">Math</label>
-          </div>
+        <div className="flex align-items-center justify-content-center theme-options">
           <div className="flex">
             <input
               type="radio"
@@ -77,6 +56,26 @@ const EncryptView = () => {
               checked={theme === "emoji"}
             />
               <label htmlFor="emoji">Emoji</label>
+          </div>
+          <div className="flex ">
+            <input
+              type="radio"
+              id="latin"
+              value="latin"
+              onChange={updateTheme}
+              checked={theme === "latin"}
+            />
+              <label htmlFor="html">Latin Characters</label>
+          </div>
+          <div className="flex">
+            <input
+              type="radio"
+              id="math"
+              value="math"
+              onChange={updateTheme}
+              checked={theme === "math"}
+            />
+              <label htmlFor="math">Math Symbols</label>
           </div>
         </div>
         <button

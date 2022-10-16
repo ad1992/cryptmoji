@@ -11,7 +11,7 @@ const DecyrptView = () => {
     <div className="flex flex-col align-items-center justify-content-center">
       {" "}
       <div className="flex flex-col" style={{ width: "50%" }}>
-        <label htmlFor="encrypted-text"> Paste the CryptIt</label>
+        <label htmlFor="encrypted-text"> Paste the Cryptmoji</label>
         <textarea
           className="flex-item"
           id="encrypted-text"

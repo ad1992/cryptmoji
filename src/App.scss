@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  margin: 20px;
+  font-size: 16px;
+  box-sizing: border-box;
 
   .flex {
     display: flex;
@@ -12,20 +15,21 @@
   .align-items-center {
     align-items: center;
   }
+
+  .justify-content-center {
+    justify-content: center;
+  }
   .flex-container {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
     flex-wrap: wrap;
   }
 
   .flex-item {
-    width: 400px;
-    display: flex;
     flex: 1;
     margin: 10px 0;
     word-break: break-word;
+    padding: 10px;
   }
 
   button {
@@ -36,10 +40,70 @@
     text-align: center;
   }
 
-  label {
+  textarea {
+    resize: none;
+  }
+
+  label,
+  .theme {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 20px;
+    margin: 5px;
+    color: #748ffc;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  textarea,
+  input {
+    font-size: 20px;
+    font-weight: 500;
+    color: #868e96;
+    font-weight: bold;
+    border: none;
+    border-radius: 0.25rem;
+    box-shadow: 0 0 0 1px #aaa;
+  }
+
+  input[type="radio"] {
+    box-shadow: none;
+  }
+
+  .error {
+    color: red;
+    font-weight: bold;
+    font-size: 26px;
+    display: block;
+  }
+
+  .wide-100 {
+    width: 100%;
+  }
+
+  .encrypt,
+  .decrypt {
+    background: none;
+    border: none;
+    font-size: 20px;
+    padding: 5px;
+    margin: 5px;
+    font-weight: bold;
+    width: 140px;
+    &.active {
+      border-bottom: 3px solid #748ffc;
+    }
+  }
+
+  .encrypt-btn,
+  .decrypt-btn {
+    background: #9775fa;
+    color: white;
+    font-size: 20px;
+    border: none;
+  }
+
+  .theme {
+    padding-left: 0;
   }
 }

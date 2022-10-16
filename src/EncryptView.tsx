@@ -30,76 +30,78 @@ const EncryptView = () => {
     }
   };
   return (
-    <div className="encrypt-view flex-container">
-      <label>
-        {" "}
-        Enter the message
+    <div className="flex flex-col align-items-center justify-content-center">
+      <div className="flex flex-col" style={{ width: "50%" }}>
+        <label htmlFor="message"> Enter the message</label>
         <textarea
           className="flex-item"
-          placeholder="Enter the message"
+          id="message"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
         ></textarea>
-      </label>
-      <label>
-        {" "}
-        Enter the password
+        <label htmlFor="password"> Enter the password </label>
         <input
           className="flex-item"
-          placeholder="Enter the password"
+          id="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         ></input>
-      </label>
-      <p> Select theme</p>{" "}
-      <div className="flex align-items-center">
-        <input
-          type="radio"
-          id="latin"
-          value="latin"
-          onChange={updateTheme}
-          checked={theme === "latin"}
-        />
-          <label htmlFor="html">Latin</label>
-        <input
-          type="radio"
-          id="math"
-          value="math"
-          onChange={updateTheme}
-          checked={theme === "math"}
-        />
-          <label htmlFor="math">Math</label>
-        <input
-          type="radio"
-          id="emoji"
-          value="emoji"
-          onChange={updateTheme}
-          checked={theme === "emoji"}
-        />
-          <label htmlFor="emoji">Emoji</label>
-      </div>
-      <button
-        className="flex-item"
-        onClick={async () => {
-          try {
-            if (!message || !password) {
-              return;
-            }
-            const data = await encrypt(message, password);
-            setEncryptedBuffer(data);
-          } catch (err) {
-            console.error(err);
-          }
-        }}
-      >
-        {" "}
-        Encrypt
-      </button>
-      {encryptedBuffer && (
-        <div className="flex-item">
-          {renderEncryptedContent(encryptedBuffer)}{" "}
+        <p className="flex-item theme"> Select theme</p>
+        <div className="flex align-items-center justify-content-center">
+          <div className="flex">
+            <input
+              type="radio"
+              id="latin"
+              value="latin"
+              onChange={updateTheme}
+              checked={theme === "latin"}
+            />
+              <label htmlFor="html">Latin</label>
+          </div>
+          <div className="flex">
+            <input
+              type="radio"
+              id="math"
+              value="math"
+              onChange={updateTheme}
+              checked={theme === "math"}
+            />
+              <label htmlFor="math">Math</label>
+          </div>
+          <div className="flex">
+            <input
+              type="radio"
+              id="emoji"
+              value="emoji"
+              onChange={updateTheme}
+              checked={theme === "emoji"}
+            />
+              <label htmlFor="emoji">Emoji</label>
+          </div>
         </div>
-      )}
+        <button
+          className="encrypt-btn flex-item"
+          onClick={async () => {
+            try {
+              if (!message || !password) {
+                return;
+              }
+              const data = await encrypt(message, password);
+              setEncryptedBuffer(data);
+            } catch (err) {
+              console.error(err);
+            }
+          }}
+        >
+          {" "}
+          Encrypt
+        </button>
+        {encryptedBuffer && (
+          <div className="flex-item">
+            {renderEncryptedContent(encryptedBuffer)}{" "}
+          </div>
+        )}
+      </div>
     </div>
   );
 };

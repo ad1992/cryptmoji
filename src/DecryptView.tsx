@@ -8,43 +8,41 @@ const DecyrptView = () => {
   const [decryptedText, setDecryptedText] = useState("");
 
   return (
-    <div className="decrypt-view flex-container">
-      <label>
-        {" "}
-        Paste the Cryptmoji
+    <div className="flex flex-col align-items-center justify-content-center">
+      {" "}
+      <div className="flex flex-col" style={{ width: "50%" }}>
+        <label htmlFor="encrypted-text"> Paste the CryptIt</label>
         <textarea
           className="flex-item"
-          placeholder="Paste the Crytmoji"
+          id="encrypted-text"
           onChange={(event) => setEncryptedText(event.target.value)}
           value={encryptedText}
-        ></textarea>
-      </label>{" "}
-      <label placeholder="Enter the key">
-        {" "}
-        Enter the password
+        ></textarea>{" "}
+        <label htmlFor="password"> Enter the password </label>
         <input
           className="flex-item"
+          id="password"
           onChange={(event) => setPassword(event.target.value)}
           value={password}
         ></input>
-      </label>
-      <button
-        className="flex-item"
-        onClick={async () => {
-          try {
-            const dataInBytes = dataToBytes(encryptedText);
-            const data = await decrypt(dataInBytes, password);
-            setDecryptedText(data);
-          } catch (err) {
-            console.error(err);
-            setDecryptedText("");
-          }
-        }}
-      >
-        {" "}
-        Decrypt
-      </button>
-      {decryptedText && <div className="flex-item">{decryptedText} </div>}
+        <button
+          className="decrypt-btn flex-item"
+          onClick={async () => {
+            try {
+              const dataInBytes = dataToBytes(encryptedText);
+              const data = await decrypt(dataInBytes, password);
+              setDecryptedText(data);
+            } catch (err) {
+              console.error(err);
+              setDecryptedText("");
+            }
+          }}
+        >
+          {" "}
+          Decrypt
+        </button>
+        {decryptedText && <div className="flex-item">{decryptedText} </div>}
+      </div>
     </div>
   );
 };

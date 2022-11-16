@@ -3,6 +3,7 @@ import "./App.scss";
 import DecyrptView from "./DecryptView";
 import EncryptView from "./EncryptView";
 import clsx from "clsx";
+import GitHubCorner from "./GithubCorner";
 
 const VIEW = {
   ENCRYPT: 0,
@@ -12,8 +13,10 @@ function App() {
   const [activeView, setActiveView] = useState(VIEW.ENCRYPT);
   return (
     <div className="App">
-      <h1>Encrypt your messages into Emojis, Latin and Math Symbols</h1>
-      <div style={{ margin: "2rem" }}>
+      <GitHubCorner />
+      <h1 style={{ color: "#0b7285" }}>Cryptmoji</h1>
+      <h3>Encrypt your messages into Emojis, Latin and Math Symbols</h3>
+      <div style={{ margin: "1rem" }}>
         <button
           className={clsx("encrypt", { active: activeView === VIEW.ENCRYPT })}
           onClick={() => setActiveView(VIEW.ENCRYPT)}

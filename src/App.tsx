@@ -4,6 +4,7 @@ import DecyrptView from "./DecryptView";
 import EncryptView from "./EncryptView";
 import clsx from "clsx";
 import GitHubCorner from "./GithubCorner";
+import Footer from "./Footer";
 
 const VIEW = {
   ENCRYPT: 0,
@@ -31,6 +32,7 @@ function App() {
         </button>
       </div>
       {activeView === VIEW.ENCRYPT ? <EncryptView /> : <DecyrptView />}
+      <Footer />
     </div>
   );
 }

@@ -21,6 +21,7 @@ const DecyrptView = () => {
         ></textarea>{" "}
         <label htmlFor="password"> Enter the password </label>
         <input
+          type="password"
           className="flex-item"
           id="password"
           onChange={(event) => setPassword(event.target.value)}

@@ -41,6 +41,7 @@ const EncryptView = () => {
         ></textarea>
         <label htmlFor="password"> Enter the password </label>
         <input
+          type="password"
           className="flex-item"
           id="password"
           value={password}

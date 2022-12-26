@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CopyToClipboard from "./copyToClipboard";
 import { encrypt } from "./crypto";
 import { convertToEmoji, convertToLatin, convertToMath } from "./transformData";
 
@@ -27,6 +28,7 @@ const EncryptView = () => {
     } else if (theme === THEME.EMOJI) {
       return convertToEmoji(encryptedBuffer);
     }
+    return "";
   };
   return (
     <div className="flex flex-col align-items-center justify-content-center">
@@ -105,8 +107,11 @@ const EncryptView = () => {
           Encrypt
         </button>
         {encryptedBuffer && (
-          <div className={`flex-item encrypted-text ${theme}`}>
-            {renderEncryptedContent(encryptedBuffer)}{" "}
+          <div className="flex">
+            <div className={`flex-item encrypted-text ${theme}`}>
+              {renderEncryptedContent(encryptedBuffer)}{" "}
+            </div>{" "}
+            <CopyToClipboard text={renderEncryptedContent(encryptedBuffer)} />
           </div>
         )}
       </div>

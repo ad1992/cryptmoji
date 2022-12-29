@@ -107,11 +107,17 @@ const EncryptView = () => {
           Encrypt
         </button>
         {encryptedBuffer && (
-          <div className="flex">
-            <div className={`flex-item encrypted-text ${theme}`}>
-              {renderEncryptedContent(encryptedBuffer)}{" "}
-            </div>{" "}
-            <CopyToClipboard text={renderEncryptedContent(encryptedBuffer)} />
+          <div className="flex flex-col">
+            <div className="flex justify-content-between">
+              <label htmlFor="encrypted-text">Cryptmoji</label>
+              <CopyToClipboard text={renderEncryptedContent(encryptedBuffer)} />
+            </div>
+            <textarea
+              readOnly
+              className={`flex-item encrypted-text ${theme}`}
+              id="encrypted-text"
+              value={renderEncryptedContent(encryptedBuffer)}
+            />
           </div>
         )}
       </div>

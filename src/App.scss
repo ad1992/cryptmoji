@@ -19,6 +19,9 @@
   .justify-content-center {
     justify-content: center;
   }
+  .justify-content-between {
+    justify-content: space-between;
+  }
   .flex-container {
     display: flex;
     flex-direction: column;
@@ -115,7 +118,8 @@
     padding-left: 0;
   }
 
-  .encrypted-text {
+  .encrypted-text,
+  decrypt-text {
     font-size: 20px;
     font-weight: 500;
     &.latin {

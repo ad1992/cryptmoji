@@ -1,4 +1,5 @@
 import { useState } from "react";
+import CopyToClipboard from "./copyToClipboard";
 import { decrypt } from "./crypto";
 import { dataToBytes } from "./transformData";
 
@@ -43,7 +44,20 @@ const DecyrptView = () => {
           {" "}
           Decrypt
         </button>
-        {decryptedText && <div className="flex-item">{decryptedText} </div>}
+        {decryptedText && (
+          <div className="flex flex-col">
+            <div className="flex justify-content-between">
+              <label htmlFor="decrypt-text">Secret Message</label>
+              <CopyToClipboard text={decryptedText} />
+            </div>
+            <textarea
+              readOnly
+              className={`flex-item decrypt-text`}
+              id="encrypted-text"
+              value={decryptedText}
+            />
+          </div>
+        )}
       </div>
     </div>
   );

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import CopyToClipboard from "./copyToClipboard";
 import { decrypt } from "./crypto";
+import Error from "./Error";
 import { dataToBytes } from "./transformData";
 
 const DecyrptView = () => {
   const [encryptedText, setEncryptedText] = useState("");
   const [password, setPassword] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
-
+  const [error, setError] = useState("");
   return (
     <div className="flex flex-col align-items-center justify-content-center">
       {" "}
@@ -35,8 +36,10 @@ const DecyrptView = () => {
               const dataInBytes = dataToBytes(encryptedText);
               const data = await decrypt(dataInBytes, password);
               setDecryptedText(data);
+              setError("");
             } catch (err) {
               console.error(err);
+              setError("Oops sorry the Cryptmoji couldn't be decrypted :(");
               setDecryptedText("");
             }
           }}
@@ -58,6 +61,7 @@ const DecyrptView = () => {
             />
           </div>
         )}
+        {error && <Error error={error} />}
       </div>
     </div>
   );

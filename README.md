@@ -14,3 +14,10 @@ The best way to learn something is by building it so I created this fun project 
 
 Open and [issue](https://github.com/ad1992/cryptmoji/issues/new) and lets discuss :)
 
+## Similar Projects
+
+* https://cryptoji.com
+* https://aghorler.github.io/emoji-aes
+* https://txtmoji.com
+
+

@@ -67,6 +67,8 @@
 
   textarea,
   input {
+    background-color: var(--background-color);
+    color: var(--text-color);
     font-size: 20px;
     font-weight: 500;
     color: #868e96;
@@ -93,7 +95,7 @@
 
   .encrypt,
   .decrypt {
-    background: none;
+    //background: none;
     border: none;
     font-size: 20px;
     padding: 5px;
@@ -104,7 +106,19 @@
       border-bottom: 3px solid #0c8599;
     }
   }
-
+  .dark-mode-toggle {
+    background: #03071e;
+    color: #fff;  // Adjust text color for better contrast
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+  
+    &:hover {
+      background: #1a1a1a;  // Adjust hover color if needed
+    }
+  }
   .encrypt-btn,
   .decrypt-btn {
     background: #1098ad;

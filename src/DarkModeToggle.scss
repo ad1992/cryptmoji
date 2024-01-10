@@ -1,0 +1,31 @@
+
+.dark-mode {
+    --background-color: #000000;
+    --text-color: #fff;
+  }
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+ // Add these styles for input fields in both light and dark modes
+input {
+  font-size: 20px;
+  font-weight: 500;
+  color: #868e96;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0 1px #aaa;
+
+  &.dark-mode {
+    color: #fff;  // Adjust text color for dark mode
+    background-color: #555;  // Adjust background color for dark mode
+  }
+}
+
+// Add these styles for radio buttons in both light and dark modes
+input[type="radio"] {
+  box-shadow: none;
+
+
+}

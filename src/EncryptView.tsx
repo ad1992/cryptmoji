@@ -2,30 +2,25 @@ import { useState } from "react";
 import CopyToClipboard from "./copyToClipboard";
 import { encrypt } from "./crypto";
 import { convertToEmoji, convertToLatin, convertToMath } from "./transformData";
+import { BG_THEME_TYPES, themes } from "./DynamicBackground";
 
-const THEME = {
-  LATIN: "latin",
-  MATH: "math",
-  EMOJI: "emoji",
-};
-const EncryptView = () => {
+const EncryptView = ({
+  activeBgTheme,
+}: {
+  activeBgTheme: keyof typeof themes;
+}) => {
   const [message, setMessage] = useState("");
   const [password, setPassword] = useState("");
   const [encryptedBuffer, setEncryptedBuffer] = useState<ArrayBuffer | null>(
-    null
+    null,
   );
-  const [theme, setTheme] = useState(THEME.EMOJI);
-
-  const updateTheme = (event: { target: HTMLInputElement }) => {
-    setTheme(event.target.value);
-  };
 
   const renderEncryptedContent = (encryptedBuffer: ArrayBuffer) => {
-    if (theme === THEME.LATIN) {
+    if (activeBgTheme === BG_THEME_TYPES.LATIN) {
       return convertToLatin(encryptedBuffer);
-    } else if (theme === THEME.MATH) {
+    } else if (activeBgTheme === BG_THEME_TYPES.MATH) {
       return convertToMath(encryptedBuffer);
-    } else if (theme === THEME.EMOJI) {
+    } else if (activeBgTheme === BG_THEME_TYPES.EMOJI) {
       return convertToEmoji(encryptedBuffer);
     }
     return "";
@@ -49,46 +44,6 @@ const EncryptView = () => {
           value={password}
           onChange={(event) => setPassword(event.target.value)}
         ></input>
-        <p className="flex-item theme"> Select theme</p>
-        <div className="flex align-items-center justify-content-center theme-options">
-          <div className="flex">
-            <input
-              type="radio"
-              id="emoji"
-              value="emoji"
-              onChange={updateTheme}
-              checked={theme === "emoji"}
-            />
-              <label htmlFor="emoji">😍 😙 🧜 🙌 😦 😛 🙀 🤒 🤩 🤯 🏂 😁</label>
-          </div>
-          <div className="flex ">
-            <input
-              type="radio"
-              id="latin"
-              value="latin"
-              onChange={updateTheme}
-              checked={theme === "latin"}
-            />
-             {" "}
-            <label htmlFor="latin">
-              <span>Ā ā Ć Ď Ɗ ƌ ƍ Ĕ Ĳ Ķ Ƙ Ĺ Œ Ŕ Ŝ Ţ Ɨ Ũ Ů Ŵ ų Ŷ Ź </span>
-            </label>
-          </div>
-          <div className="flex">
-            <input
-              type="radio"
-              id="math"
-              value="math"
-              onChange={updateTheme}
-              checked={theme === "math"}
-            />
-             {" "}
-            <label htmlFor="math">
-              {" "}
-              ≱ ⊥ ∞ ⊕ ∆ ≑ ∭ ⋔ √ ∏ ∌ ⋿ ⊭ ⋩ ∀ ∃ ∌ ∑ ∓{" "}
-            </label>
-          </div>
-        </div>
         <button
           className="encrypt-btn flex-item"
           onClick={async () => {
@@ -114,7 +69,7 @@ const EncryptView = () => {
             </div>
             <textarea
               readOnly
-              className={`flex-item encrypted-text ${theme}`}
+              className={`flex-item encrypted-text ${activeBgTheme}`}
               id="encrypted-text"
               value={renderEncryptedContent(encryptedBuffer)}
             />

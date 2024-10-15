@@ -1,7 +1,12 @@
 import { themes } from "./DynamicBackground";
 import "./BackgroundThemeDropdown.scss";
 
-const OPTIONS = ["emoji", "latin", "math"];
+const OPTIONS = {
+  emoji: "Emoji Vibes",
+  latin: "Classical Latin",
+  math: "Math Galaxy",
+};
+
 const BackgroundThemeDropdown = ({
   activeTheme,
   onChange,
@@ -18,9 +23,9 @@ const BackgroundThemeDropdown = ({
       }}
       className="bg-theme-dropdown"
     >
-      {OPTIONS.map((option, index) => (
-        <option key={index} value={option}>
-          {option.charAt(0).toUpperCase() + option.slice(1)}
+      {Object.entries(OPTIONS).map(([key, val], index) => (
+        <option key={index} value={key}>
+          {val}
         </option>
       ))}
     </select>

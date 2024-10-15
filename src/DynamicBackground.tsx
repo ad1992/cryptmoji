@@ -161,7 +161,7 @@ const DynamicBackground = React.memo(
               position: "absolute",
               top: `${el.y}px`,
               left: `${el.x}px`,
-              opacity: "0.15",
+              opacity: "0.1",
               userSelect: "none",
               transform: `rotate(${randomInRange(0, 360)}deg)`,
               color: el.color,

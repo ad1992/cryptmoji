@@ -69,7 +69,7 @@ const EncryptView = ({
             </div>
             <textarea
               readOnly
-              className={`flex-item encrypted-text ${activeBgTheme}`}
+              className="flex-item encrypted-text input-field"
               id="encrypted-text"
               value={renderEncryptedContent(encryptedBuffer)}
             />

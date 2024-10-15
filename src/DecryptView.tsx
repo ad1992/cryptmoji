@@ -55,7 +55,7 @@ const DecyrptView = () => {
             </div>
             <textarea
               readOnly
-              className={`flex-item decrypt-text`}
+              className="flex-item decrypt-text input-field"
               id="encrypted-text"
               value={decryptedText}
             />

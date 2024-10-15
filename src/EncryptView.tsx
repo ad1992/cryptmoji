@@ -30,7 +30,7 @@ const EncryptView = ({
       <div className="flex flex-col" style={{ width: "50%" }}>
         <label htmlFor="message"> Enter the message</label>
         <textarea
-          className="flex-item"
+          className="flex-item input-field"
           id="message"
           value={message}
           onChange={(event) => setMessage(event.target.value)}
@@ -39,7 +39,7 @@ const EncryptView = ({
         <label htmlFor="password"> Enter the password </label>
         <input
           type="password"
-          className="flex-item"
+          className="flex-item input-field"
           id="password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}

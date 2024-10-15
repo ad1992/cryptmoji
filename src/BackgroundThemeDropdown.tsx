@@ -1,5 +1,5 @@
-import "./BackgroundThemeDropdown.scss";
 import { themes } from "./DynamicBackground";
+import "./BackgroundThemeDropdown.scss";
 
 const OPTIONS = ["emoji", "latin", "math"];
 const BackgroundThemeDropdown = ({
@@ -16,7 +16,6 @@ const BackgroundThemeDropdown = ({
         // @ts-ignore
         onChange(e.target.value);
       }}
-      style={{ padding: "8px", fontSize: "16px", margin: "10px" }}
       className="bg-theme-dropdown"
     >
       {OPTIONS.map((option, index) => (

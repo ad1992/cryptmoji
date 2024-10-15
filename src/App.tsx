@@ -21,7 +21,9 @@ function App() {
       <DynamicBackground theme={activeBgTheme} />
       <div className="App">
         <GitHubCorner />
-        <h1 style={{ color: "#0b7285" }}>Cryptmoji</h1>
+        <h1 style={{ color: "#1971c2" }}>
+          CRYPTM<span>😎</span>JI
+        </h1>
         <h3>Encrypt your messages into Emojis, Latin and Math Symbols</h3>
         <div style={{ margin: "1rem" }}>
           <button

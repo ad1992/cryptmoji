@@ -47,37 +47,15 @@
     resize: none;
   }
 
-  label,
-  .theme {
+  label{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     margin: 5px;
-    color: #22b8cf;
+    color: #777;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-  }
-
-  .theme-options {
-    label {
-      color: #f783ac;
-    }
-  }
-
-  textarea,
-  input {
-    font-size: 20px;
-    font-weight: 500;
-    color: #868e96;
-    font-weight: bold;
-    border: none;
-    border-radius: 0.25rem;
-    box-shadow: 0 0 0 1px #aaa;
-  }
-
-  input[type="radio"] {
-    box-shadow: none;
   }
 
   .error {
@@ -101,13 +79,15 @@
     font-weight: bold;
     width: 140px;
     &.active {
-      border-bottom: 3px solid #0c8599;
+      border-bottom: 3px solid #1971c2;
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+      background-color: #ffffff;
     }
   }
 
   .encrypt-btn,
   .decrypt-btn {
-    background: #1098ad;
+    background: #1971c2;
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -119,7 +99,7 @@
   }
 
   .encrypted-text,
-  decrypt-text {
+  .decrypt-text {
     font-size: 20px;
     font-weight: 500;
     &.latin {
@@ -128,6 +108,13 @@
     &.math {
       color: #0ca678;
     }
+  }
+
+  .input-field {
+    padding: 12px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
   }
 }
 

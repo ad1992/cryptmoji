@@ -15,7 +15,7 @@ const DecyrptView = () => {
       <div className="flex flex-col" style={{ width: "50%" }}>
         <label htmlFor="encrypted-text"> Paste the Cryptmoji</label>
         <textarea
-          className="flex-item"
+          className="flex-item input-field"
           id="encrypted-text"
           onChange={(event) => setEncryptedText(event.target.value)}
           value={encryptedText}
@@ -24,7 +24,7 @@ const DecyrptView = () => {
         <label htmlFor="password"> Enter the password </label>
         <input
           type="password"
-          className="flex-item"
+          className="flex-item input-field"
           id="password"
           onChange={(event) => setPassword(event.target.value)}
           value={password}

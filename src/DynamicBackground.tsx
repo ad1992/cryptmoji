@@ -107,7 +107,6 @@ const calculateGridDimensions = (
   const aspectRatio = screenWidth / screenHeight;
   const cols = Math.ceil(Math.sqrt(aspectRatio) * MULTIPLIER);
   const rows = Math.ceil(cols / aspectRatio);
-  console.log(rows, cols, aspectRatio, screenHeight, screenWidth);
   return { cols, rows };
 };
 
@@ -119,7 +118,6 @@ const { rows, cols } = calculateGridDimensions(
 
 const gridCellWidth = Math.floor(window.innerWidth / cols);
 const gridCellHeight = Math.floor(window.innerHeight / rows);
-console.log(gridCellHeight, gridCellWidth);
 const DynamicBackground = React.memo(
   ({ theme = "emoji" }: { theme: keyof typeof themes }) => {
     const [elements, setElements] = useState<Array<Element>>([]);

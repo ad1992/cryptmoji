@@ -12,7 +12,7 @@ The best way to learn something is by building it so I created this fun project 
 
 ## Contribute
 
-Open and [issue](https://github.com/ad1992/cryptmoji/issues/new) and let's discuss :)
+Open an [issue](https://github.com/ad1992/cryptmoji/issues/new) and let's discuss :)
 
 ## Similar Projects
 

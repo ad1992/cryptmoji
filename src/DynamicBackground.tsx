@@ -105,26 +105,14 @@ const DynamicBackground = React.memo(
       Array<{ x: number; y: number; size: number }>
     >([]);
 
-    const isOverlapping = (newPos: { x: number; y: number }, size: number) => {
-      return placedElements.current.some((pos) => {
-        const distance = Math.sqrt(
-          Math.pow(newPos.x - pos.x, 2) + Math.pow(newPos.y - pos.y, 2),
-        );
-        return distance < size; // Ensure there's space between elements
-      });
-    };
-
     const createElement = useCallback((content: Array<string>) => {
       const size = randomInRange(20, 80); // Random size for elements
       let newPos;
 
-      // Loop to find a valid position that doesn't overlap
-      do {
-        newPos = {
-          x: randomInRange(0, window.innerWidth - size),
-          y: randomInRange(0, window.innerHeight - size),
-        };
-      } while (isOverlapping(newPos, size + 20));
+      newPos = {
+        x: randomInRange(0, window.innerWidth - size),
+        y: randomInRange(0, window.innerHeight - size),
+      };
 
       placedElements.current.push({ x: newPos.x, y: newPos.y, size });
 
@@ -144,7 +132,7 @@ const DynamicBackground = React.memo(
       const content = themes[theme] || themes.emoji;
       const elementsArray: Array<Element> = [];
 
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 50; i++) {
         elementsArray.push(createElement(content));
       }
       setElements(elementsArray);

@@ -144,7 +144,7 @@ const DynamicBackground = React.memo(
       const content = themes[theme] || themes.emoji;
       const elementsArray: Array<Element> = [];
 
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 100; i++) {
         elementsArray.push(createElement(content));
       }
       setElements(elementsArray);

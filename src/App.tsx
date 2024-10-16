@@ -24,7 +24,10 @@ function App() {
         <h1 style={{ color: "#1971c2" }}>
           CRYPTM<span>😎</span>JI
         </h1>
-        <h3>Encrypt your messages into Emojis, Latin and Math Symbols</h3>
+        <p className="subtext">
+          Encrypt with flair — transform your messages into vibrant Emojis,
+          classic Latin, and infinite Math!
+        </p>
         <div style={{ margin: "1rem" }}>
           <button
             className={clsx("encrypt", { active: activeView === VIEW.ENCRYPT })}

@@ -1,9 +1,14 @@
 .App {
   text-align: center;
   margin: 20px;
-  font-size: 16px;
+  font-size: 1rem;
   box-sizing: border-box;
 
+  .subtext {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #212529;
+  }
   .flex {
     display: flex;
   }
@@ -73,7 +78,7 @@
   .decrypt {
     background: none;
     border: none;
-    font-size: 20px;
+    font-size: 1.25rem;
     padding: 5px;
     margin: 5px;
     font-weight: bold;
@@ -89,7 +94,7 @@
   .decrypt-btn {
     background: #1971c2;
     color: white;
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     border: none;
   }
@@ -100,7 +105,7 @@
 
   .encrypted-text,
   .decrypt-text {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     &.latin {
       color: #74b816;
@@ -114,7 +119,7 @@
     padding: 12px 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 1rem;
   }
 }
 

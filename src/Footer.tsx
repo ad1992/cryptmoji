@@ -8,7 +8,7 @@ const Footer = () => {
         Enjoying this project? Sponsor on{" "}
         <a
           href="https://github.com/sponsors/ad1992/"
-          style={{ color: "#0366d6;" }}
+          style={{ color: "#0366d6" }}
         >
           GitHub
         </a>{" "}

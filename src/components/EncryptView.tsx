@@ -1,8 +1,14 @@
 import { useState } from "react";
 import CopyToClipboard from "./copyToClipboard";
-import { encrypt } from "./crypto";
-import { convertToEmoji, convertToLatin, convertToMath } from "./transformData";
+import { encrypt } from "../crypto";
+import {
+  convertToEmoji,
+  convertToLatin,
+  convertToMath,
+} from "../transformData";
 import { BG_THEME_TYPES, themes } from "./DynamicBackground";
+
+import "./EncryptView.scss";
 
 const EncryptView = ({
   activeBgTheme,
@@ -26,8 +32,8 @@ const EncryptView = ({
     return "";
   };
   return (
-    <div className="flex flex-col align-items-center justify-content-center">
-      <div className="flex flex-col" style={{ width: "50%" }}>
+    <div className="encrypt-view flex flex-col align-items-center justify-content-center">
+      <div className="flex flex-col">
         <label htmlFor="message"> Enter the message</label>
         <textarea
           className="flex-item input-field"

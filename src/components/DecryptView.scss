@@ -1,0 +1,13 @@
+.decrypt-view {
+  &>:first-child {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .decrypt-view {
+    &>:first-child {
+      width: 100%;
+    }
+  }
+}

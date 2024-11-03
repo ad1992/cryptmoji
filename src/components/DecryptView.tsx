@@ -1,18 +1,19 @@
 import { useState } from "react";
 import CopyToClipboard from "./copyToClipboard";
-import { decrypt } from "./crypto";
+import { decrypt } from "../crypto";
 import Error from "./Error";
-import { dataToBytes } from "./transformData";
+import { dataToBytes } from "../transformData";
 
+import "./DecryptView.scss";
 const DecyrptView = () => {
   const [encryptedText, setEncryptedText] = useState("");
   const [password, setPassword] = useState("");
   const [decryptedText, setDecryptedText] = useState("");
   const [error, setError] = useState("");
   return (
-    <div className="flex flex-col align-items-center justify-content-center">
+    <div className="decrypt-view flex flex-col align-items-center justify-content-center">
       {" "}
-      <div className="flex flex-col" style={{ width: "50%" }}>
+      <div className="flex flex-col">
         <label htmlFor="encrypted-text"> Paste the Cryptmoji</label>
         <textarea
           className="flex-item input-field"

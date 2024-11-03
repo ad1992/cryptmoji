@@ -10,8 +10,8 @@
   box-sizing: border-box;
 
   .subtext {
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 600;
     color: #212529;
   }
   .flex {
@@ -116,6 +116,8 @@
   .decrypt-text {
     font-size: 1.25rem;
     font-weight: 500;
+    min-height: 5rem;
+
     &.latin {
       color: #74b816;
     }
@@ -128,7 +130,7 @@
     padding: 12px 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1.25rem;
   }
 }
 

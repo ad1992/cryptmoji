@@ -98,6 +98,26 @@ const getRandomColor = () => {
   return color;
 };
 
+const calculateGridDimensions = (
+  eleCount: number,
+  screenWidth: number,
+  screenHeight: number,
+) => {
+  const MULTIPLIER = 10;
+  const aspectRatio = screenWidth / screenHeight;
+  const cols = Math.ceil(Math.sqrt(aspectRatio) * MULTIPLIER);
+  const rows = Math.ceil(cols / aspectRatio);
+  return { cols, rows };
+};
+
+const { rows, cols } = calculateGridDimensions(
+  100,
+  window.innerWidth,
+  window.innerHeight,
+);
+
+const gridCellWidth = Math.floor(window.innerWidth / cols);
+const gridCellHeight = Math.floor(window.innerHeight / rows);
 const DynamicBackground = React.memo(
   ({ theme = "emoji" }: { theme: keyof typeof themes }) => {
     const [elements, setElements] = useState<Array<Element>>([]);
@@ -105,38 +125,34 @@ const DynamicBackground = React.memo(
       Array<{ x: number; y: number; size: number }>
     >([]);
 
-    const createElement = useCallback((content: Array<string>) => {
-      const size = randomInRange(20, 80); // Random size for elements
-      let newPos;
-
-      newPos = {
-        x: randomInRange(0, window.innerWidth - size),
-        y: randomInRange(0, window.innerHeight - size),
-      };
-
-      placedElements.current.push({ x: newPos.x, y: newPos.y, size });
-
-      // Return the element object
-      return {
-        content: content[randomInRange(0, content.length - 1)],
-        size,
-        x: newPos.x,
-        y: newPos.y,
-        color: getRandomColor(),
-      };
-    }, []);
-
     useEffect(() => {
       placedElements.current = [];
 
       const content = themes[theme] || themes.emoji;
       const elementsArray: Array<Element> = [];
 
-      for (let i = 0; i < 50; i++) {
-        elementsArray.push(createElement(content));
+      for (let i = 0; i < cols * rows; i++) {
+        const minwidth = Math.min(20, gridCellWidth);
+        const maxWidth = Math.min(80, gridCellWidth);
+        const size = randomInRange(minwidth, maxWidth); // Random size for elements
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+
+        // Calculate position for each emoji
+        const x = col * gridCellWidth;
+        const y = row * gridCellHeight;
+
+        placedElements.current.push({ x, y, size });
+        elementsArray.push({
+          content: content[randomInRange(0, content.length - 1)],
+          size,
+          x,
+          y,
+          color: getRandomColor(),
+        });
       }
       setElements(elementsArray);
-    }, [createElement, theme]);
+    }, [theme]);
 
     return (
       <div className="dynamic-bg">

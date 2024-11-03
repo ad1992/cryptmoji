@@ -1,9 +1,8 @@
-const cryptoSubtle = window.crypto.subtle;
 const CRYPTO_ALGO_NAME = "AES-GCM";
 
 export const generatePBKDF2CryptoKey = async (password: string) => {
   const passWordAsBytes = encode(password);
-  const passWordCryptoKey = await cryptoSubtle.importKey(
+  const passWordCryptoKey = await window.crypto.subtle.importKey(
     "raw",
     passWordAsBytes,
     "PBKDF2",
@@ -17,7 +16,7 @@ const deriveAESCryptoKeyFromPassword = async (
   passWordCryptoKey: CryptoKey,
   salt: Uint8Array
 ) => {
-  const cryptoKey = cryptoSubtle.deriveKey(
+  const cryptoKey = await window.crypto.subtle.deriveKey(
     {
       name: "PBKDF2",
       salt,
@@ -44,7 +43,7 @@ export const encrypt = async (text: string, password: string) => {
   );
   const iv = crypto.getRandomValues(new Uint8Array(16));
   console.log(salt, iv);
-  const encryptedBuffer = await cryptoSubtle.encrypt(
+  const encryptedBuffer = await window.crypto.subtle.encrypt(
     {
       name: CRYPTO_ALGO_NAME,
       iv,
@@ -75,7 +74,7 @@ export const decrypt = async (encryptedData: Uint8Array, password: string) => {
     passWordCryptoKey,
     salt
   );
-  const decryptedBuffer = await cryptoSubtle.decrypt(
+  const decryptedBuffer = await window.crypto.subtle.decrypt(
     {
       name: CRYPTO_ALGO_NAME,
       iv,

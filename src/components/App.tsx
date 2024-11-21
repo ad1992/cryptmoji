@@ -48,11 +48,11 @@ function App() {
           <DecyrptView />
         )}
         <Footer />
+        <BackgroundThemeDropdown
+          activeTheme={activeBgTheme}
+          onChange={(theme) => setActiveBgTheme(theme)}
+        />
       </div>
-      <BackgroundThemeDropdown
-        activeTheme={activeBgTheme}
-        onChange={(theme) => setActiveBgTheme(theme)}
-      />
     </>
   );
 }

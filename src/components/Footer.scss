@@ -1,13 +1,13 @@
 .footer {
   position: absolute;
   width: 100%;
-  bottom: 5%;
   text-align: center;
   font-size: 0.75rem;
   font-weight: 500;
   color: #212529;
   word-break: break-word;
-  margin-top: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
 
   a {
     color: #1971c2;
@@ -19,5 +19,11 @@
 @media screen and (max-width: 480px) {
   .footer {
     font-size: 0.6rem;
+  }
+}
+
+@media screen and (min-height:760px ) {
+  .footer {
+    bottom: 0;
   }
 }

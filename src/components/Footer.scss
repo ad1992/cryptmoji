@@ -1,16 +1,23 @@
 .footer {
-  bottom: 0;
-  position: fixed;
-  width: 95%;
+  position: absolute;
+  width: 100%;
+  bottom: 5%;
   text-align: center;
-  margin: 20px;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #212529;
+  word-break: break-word;
+  margin-top: 2rem;
 
   a {
     color: #1971c2;
     text-decoration: none;
     font-weight: bold;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .footer {
+    font-size: 0.6rem;
   }
 }

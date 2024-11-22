@@ -12,11 +12,13 @@ export const BG_THEME_TYPES = {
   EMOJI: "emoji",
   LATIN: "latin",
   MATH: "math",
+  KANJI: "kanji",
 };
 export const themes: {
   emoji: Array<string>;
   latin: Array<string>;
   math: Array<string>;
+  kanji: Array<string>;
 } = {
   emoji: [
     "😍",
@@ -83,6 +85,28 @@ export const themes: {
     "∌",
     "∑",
     "∓",
+  ],
+  kanji: [
+    "愛",
+    "夢",
+    "力",
+    "光",
+    "友",
+    "和",
+    "風",
+    "桜",
+    "火",
+    "水",
+    "木",
+    "土",
+    "山",
+    "海",
+    "空",
+    "星",
+    "森",
+    "道",
+    "心",
+    "花",
   ],
 };
 

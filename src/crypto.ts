@@ -7,14 +7,14 @@ export const generatePBKDF2CryptoKey = async (password: string) => {
     passWordAsBytes,
     "PBKDF2",
     false,
-    ["deriveKey"]
+    ["deriveKey"],
   );
   return passWordCryptoKey;
 };
 
 const deriveAESCryptoKeyFromPassword = async (
   passWordCryptoKey: CryptoKey,
-  salt: Uint8Array
+  salt: Uint8Array,
 ) => {
   const cryptoKey = await window.crypto.subtle.deriveKey(
     {
@@ -26,7 +26,7 @@ const deriveAESCryptoKeyFromPassword = async (
     passWordCryptoKey,
     { name: CRYPTO_ALGO_NAME, length: 128 },
     false,
-    ["encrypt", "decrypt"]
+    ["encrypt", "decrypt"],
   );
   return cryptoKey;
 };
@@ -39,26 +39,25 @@ export const encrypt = async (text: string, password: string) => {
   const salt = crypto.getRandomValues(new Uint8Array(16));
   const cryptoKey = await deriveAESCryptoKeyFromPassword(
     passWordCryptoKey,
-    salt
+    salt,
   );
   const iv = crypto.getRandomValues(new Uint8Array(16));
-  console.log(salt, iv);
   const encryptedBuffer = await window.crypto.subtle.encrypt(
     {
       name: CRYPTO_ALGO_NAME,
       iv,
     },
     cryptoKey,
-    encode(text)
+    encode(text),
   );
   const encryptedData = new Uint8Array(
-    encryptedBuffer.byteLength + iv.byteLength + salt.byteLength
+    encryptedBuffer.byteLength + iv.byteLength + salt.byteLength,
   );
   encryptedData.set(salt, 0);
   encryptedData.set(iv, salt.byteLength);
   encryptedData.set(
     new Uint8Array(encryptedBuffer),
-    salt.byteLength + iv.byteLength
+    salt.byteLength + iv.byteLength,
   );
   return encryptedData;
 };
@@ -67,12 +66,11 @@ export const decrypt = async (encryptedData: Uint8Array, password: string) => {
   const salt = encryptedData.slice(0, 16);
   const iv = encryptedData.slice(16, 32);
   const encryptedBuffer = encryptedData.slice(32);
-  console.log(salt, iv);
 
   const passWordCryptoKey = await generatePBKDF2CryptoKey(password);
   const cryptoKey = await deriveAESCryptoKeyFromPassword(
     passWordCryptoKey,
-    salt
+    salt,
   );
   const decryptedBuffer = await window.crypto.subtle.decrypt(
     {
@@ -80,9 +78,7 @@ export const decrypt = async (encryptedData: Uint8Array, password: string) => {
       iv,
     },
     cryptoKey,
-    encryptedBuffer
+    encryptedBuffer,
   );
-  console.log("Decrypted buffer", decryptedBuffer);
-  const decryptedData = new TextDecoder().decode(decryptedBuffer);
-  return decryptedData;
+  return new TextDecoder().decode(decryptedBuffer);
 };

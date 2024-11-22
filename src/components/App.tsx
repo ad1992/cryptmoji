@@ -26,7 +26,7 @@ function App() {
         </h1>
         <p className="subtext">
           Encrypt with flair — transform your messages into vibrant Emojis,
-          classic Latin, and infinite Math!
+          classic Latin, infinite Math and more!
         </p>
         <div style={{ margin: "1rem" }}>
           <button

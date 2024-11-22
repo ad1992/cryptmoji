@@ -3,6 +3,7 @@ import CopyToClipboard from "./copyToClipboard";
 import { encrypt } from "../crypto";
 import {
   convertToEmoji,
+  convertToKanji,
   convertToLatin,
   convertToMath,
 } from "../transformData";
@@ -22,14 +23,24 @@ const EncryptView = ({
   );
 
   const renderEncryptedContent = (encryptedBuffer: ArrayBuffer) => {
-    if (activeBgTheme === BG_THEME_TYPES.LATIN) {
-      return convertToLatin(encryptedBuffer);
-    } else if (activeBgTheme === BG_THEME_TYPES.MATH) {
-      return convertToMath(encryptedBuffer);
-    } else if (activeBgTheme === BG_THEME_TYPES.EMOJI) {
-      return convertToEmoji(encryptedBuffer);
+    let result = "";
+    switch (activeBgTheme) {
+      case "latin":
+        result = convertToLatin(encryptedBuffer);
+        break;
+      case "math":
+        result = convertToMath(encryptedBuffer);
+        break;
+      case "emoji":
+        result = convertToEmoji(encryptedBuffer);
+        break;
+      case "kanji":
+        result = convertToKanji(encryptedBuffer);
+        break;
+      default:
+        result = "";
     }
-    return "";
+    return result;
   };
   return (
     <div className="encrypt-view flex flex-col align-items-center justify-content-center">

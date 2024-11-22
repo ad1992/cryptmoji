@@ -5,6 +5,7 @@ const OPTIONS = {
   emoji: "Emoji Vibes",
   latin: "Classical Latin",
   math: "Math Galaxy",
+  kanji: "漢字遊び",
 };
 
 const BackgroundThemeDropdown = ({

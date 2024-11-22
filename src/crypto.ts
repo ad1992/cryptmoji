@@ -66,7 +66,6 @@ export const decrypt = async (encryptedData: Uint8Array, password: string) => {
   const salt = encryptedData.slice(0, 16);
   const iv = encryptedData.slice(16, 32);
   const encryptedBuffer = encryptedData.slice(32);
-  console.log(salt, iv);
 
   const passWordCryptoKey = await generatePBKDF2CryptoKey(password);
   const cryptoKey = await deriveAESCryptoKeyFromPassword(
@@ -81,6 +80,5 @@ export const decrypt = async (encryptedData: Uint8Array, password: string) => {
     cryptoKey,
     encryptedBuffer,
   );
-  console.log("Decrypted buffer", decryptedBuffer);
   return new TextDecoder().decode(decryptedBuffer);
 };

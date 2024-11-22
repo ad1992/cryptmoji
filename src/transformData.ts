@@ -7,7 +7,6 @@ export const emojiToBytes = (data: Array<string>) => {
   if (!Object.keys(emojiMap).length) {
     getEmojis();
   }
-  console.log(emojiMap);
   const res: number[] = [];
   data.forEach((ch) => {
     res.push(Number(emojiMap[ch]));
@@ -67,11 +66,10 @@ export const dataToBytes = (data: string) => {
 export const convertToEmoji = (dataInBytes: ArrayBuffer) => {
   const dataArray = Array.from(new Uint8Array(dataInBytes));
   const emojis = getEmojis();
-  console.log(emojis);
   let res = "";
   dataArray.forEach((data) => {
     if (!emojis[data]) {
-      console.log(data, "ERROR");
+      console.error(data, "ERROR");
     }
     res += emojis[data];
   });
@@ -101,11 +99,10 @@ export const convertToMath = (dataInBytes: ArrayBuffer) => {
 export const convertToKanji = (dataInBytes: ArrayBuffer) => {
   const dataArray = Array.from(new Uint8Array(dataInBytes));
   const kanjiChars = getKanji();
-  console.log(dataInBytes, "ENCRYPT");
   let res = "";
   dataArray.forEach((data) => {
     if (!kanjiChars[data]) {
-      console.log(data, "ERROR");
+      console.error(data, "ERROR");
     }
     res += kanjiChars[data];
   });
